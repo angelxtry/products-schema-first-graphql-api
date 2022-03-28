@@ -1,4 +1,4 @@
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer } from 'apollo-server';
 
 import {
   productGroups,
@@ -7,28 +7,11 @@ import {
   products,
   productOptionDetailRel,
 } from './db/index.js';
+import { resolvers, typeDefs } from './graphql/index.js';
 
 const server = new ApolloServer({
-  typeDefs: gql`
-    type Query {
-      hello: String
-      productGroups: [ProductGroup!]!
-    }
-
-    type ProductGroup {
-      id: ID
-      productGroupName: String
-      companyName: String
-    }
-  `,
-  resolvers: {
-    Query: {
-      hello: () => 'world',
-      productGroups: (_, __, { productGroups }) => {
-        return productGroups;
-      },
-    },
-  },
+  typeDefs,
+  resolvers,
   context: {
     productGroups,
     productOptionGroups,

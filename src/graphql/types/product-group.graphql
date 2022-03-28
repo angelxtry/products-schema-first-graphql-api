@@ -1,0 +1,9 @@
+type ProductGroup {
+  id: ID!
+  productGroupName: String!
+  companyName: String!
+}
+
+type Query {
+  productGroups: [ProductGroup!]!
+}
