@@ -1,0 +1,10 @@
+type ProductOption {
+  id: ID!
+  productOption: String!
+  productOptionGroup: ProductOptionGroup!
+}
+
+type Query {
+  productOptions: [ProductOption!]!
+  productOption(productOptionId: ID!): ProductOption
+}

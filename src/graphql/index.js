@@ -6,6 +6,7 @@ import {
   helloResolver,
   productGroupResolver,
   productOptionGroupResolver,
+  productOptionResolver,
 } from './resolvers/index.js';
 
 const __dirname = path.resolve();
@@ -13,7 +14,12 @@ const typesArray = loadFilesSync(path.join(__dirname, 'src/graphql/**/*.graphql'
   extensions: ['graphql'],
 });
 
-const resolverArray = [helloResolver, productGroupResolver, productOptionGroupResolver];
+const resolverArray = [
+  helloResolver,
+  productGroupResolver,
+  productOptionGroupResolver,
+  productOptionResolver,
+];
 
 const resolvers = mergeResolvers(resolverArray);
 const typeDefs = mergeTypeDefs(typesArray);
