@@ -1,11 +1,14 @@
+import { paginatedFn } from '../../utils/paginatedFn.js';
+
 export const productResolver = {
   Query: {
-    products: (_, { filter }, { products }) => {
+    products: (_, { pagination, filter }, { products }) => {
       let data = products;
+      const productsResultFn = paginatedFn(pagination);
       if (filter) {
         data = data.filter((product) => product.productName.includes(filter.productName));
       }
-      return data;
+      return productsResultFn(data);
     },
 
     product: (_, { productId }, { products }) => {

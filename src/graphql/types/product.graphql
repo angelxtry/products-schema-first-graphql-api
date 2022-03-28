@@ -5,11 +5,20 @@ type Product {
   productOptions: [ProductOption!]!
 }
 
+type ProductEdge {
+  node: Product!
+}
+
+type ProductConnection {
+  totalCount: Int!
+  edges: [ProductEdge!]!
+}
+
 input ProductsFilterInput {
   productName: String
 }
 
 type Query {
-  products(filter: ProductsFilterInput): [Product!]!
+  products(pagination: PaginationInput filter: ProductsFilterInput): ProductConnection!
   product(productId: ID!): Product
 }
