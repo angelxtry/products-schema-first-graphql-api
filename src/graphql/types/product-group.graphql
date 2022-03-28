@@ -4,6 +4,12 @@ type ProductGroup {
   companyName: String!
 }
 
+input ProductGroupFilterInput {
+  productGroupName: String
+  companyName: String
+}
+
 type Query {
-  productGroups: [ProductGroup!]!
+  productGroups(filter: ProductGroupFilterInput): [ProductGroup!]!
+  productGroup(productGroupId: ID!): ProductGroup
 }
