@@ -1,0 +1,15 @@
+type Product {
+  id: ID!
+  productName: String!
+  productGroup: ProductGroup!
+  productOptions: [ProductOption!]!
+}
+
+input ProductsFilterInput {
+  productName: String
+}
+
+type Query {
+  products(filter: ProductsFilterInput): [Product!]!
+  product(productId: ID!): Product
+}

@@ -7,6 +7,7 @@ import {
   productGroupResolver,
   productOptionGroupResolver,
   productOptionResolver,
+  productResolver,
 } from './resolvers/index.js';
 
 const __dirname = path.resolve();
@@ -19,6 +20,7 @@ const resolverArray = [
   productGroupResolver,
   productOptionGroupResolver,
   productOptionResolver,
+  productResolver,
 ];
 
 const resolvers = mergeResolvers(resolverArray);
