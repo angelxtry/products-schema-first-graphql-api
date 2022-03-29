@@ -1,4 +1,4 @@
-type ProductOptionGroup {
+type ProductOptionGroup implements Node{
   id: ID!
   productOptionGroupName: String!
   productGroup: ProductGroup!

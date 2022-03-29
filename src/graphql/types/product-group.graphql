@@ -1,7 +1,8 @@
-type ProductGroup {
+type ProductGroup implements Node{
   id: ID!
   productGroupName: String!
   companyName: String!
+  products(pagination: PaginationInput filter: ProductsFilterInput): ProductConnection!
 }
 
 input ProductGroupFilterInput {
